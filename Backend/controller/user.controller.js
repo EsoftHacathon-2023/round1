@@ -1,34 +1,34 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const ServiceModel = require('../model/ServiceModel')
+const UserModel = require('../model/UserModel')
 
-module.exports.getServices = async(req,res)=>{
+module.exports.getUser = async(req,res)=>{
     try {
-        const service = await ServiceModel.find();
-        res.send(service)
+        const User = await UserModel.find();
+        res.send(User)
     } catch (error) {
         res.status(400).json({err:error.message})
     }
 }
 
-module.exports.addService = async(req,res)=>{
-    let newService = new ServiceModel({
+module.exports.addUser = async(req,res)=>{
+    let newUser = new UserModel({
         title: req.body.title
     })
 
     try {
-        const addedService = await newService.save();
-        res.send(addedService);        
+        const addedUser = await newUser.save();
+        res.send(addedUser);        
     } catch (error) {
         res.status(400).json({err:error.message})
     }
 
 }
 
-module.exports.deleteService = async(req,res)=>{
+module.exports.deleteUser = async(req,res)=>{
     try {
-        const service = await ServiceModel.findById(req.params.id)
-        const ser = service.remove();
+        const User = await UserModel.findById(req.params.id)
+        const ser = User.remove();
         res.send(ser)
     } catch (error) {
         res.status(400).json({err:error.message})
@@ -37,22 +37,22 @@ module.exports.deleteService = async(req,res)=>{
 
 module.exports.getById = async(req,res)=>{
     try {
-        const service = await ServiceModel.findById(req.params.id)
-        res.send(service)
+        const User = await UserModel.findById(req.params.id)
+        res.send(User)
     } catch (error) {
         res.status(400).json({err:error.message})
     }
 }
 
-module.exports.updateService = async(req,res)=>{
+module.exports.updateUser = async(req,res)=>{
     try {
-        const service = await ServiceModel.updateOne(
+        const User = await UserModel.updateOne(
             {_id:req.params.id},
             {$set:{
                 title:req.body.title
             }}
         )
-        res.send(service)
+        res.send(User)
     } catch (error) {
         res.status(400).json({err:error.message})
     }
