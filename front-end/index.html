@@ -42,17 +42,18 @@
                         <label class="form-check-label" for="exampleCheck1">Check me out</label>
                     </div>
 
-                    <button type="submit" class="btn btn-primary" onclick="btnSubmit()">Submit</button>
-                    <script>
-                        function btnSubmit(){
-    console.log("123");
-}
-
-                    </script>
+                    <button id="myBtn" type="submit" class="btn btn-primary" onclick="btnSubmit()">Submit</button>
+                    <p id="demo"></p>
                 </form>
             </div>
         </div>
     </div>
+    <script>
+        const element = document.getElementById("myBtn");
+        element.addEventListener("click", function() {
+          document.getElementById("demo").innerHTML = "Hello World";
+        });
+        </script>
     <script src="./script.js"></script>
 </body>
 </html>

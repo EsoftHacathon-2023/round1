@@ -2,6 +2,7 @@
     margin-top: 30px;
 }
 .jq-form-container {
+    border-radius: 20px;
     height: 50%;
     width: 60%;
     border: 1px solid gray;
