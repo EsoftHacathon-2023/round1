@@ -1,0 +1,9 @@
+.container{
+    margin-top: 30px;
+}
+.jq-form-container {
+    height: 50%;
+    width: 60%;
+    border: 1px solid gray;
+    padding: 20px;
+}
