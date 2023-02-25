@@ -1,10 +1,10 @@
+const mongoose = require("mongoose");
 
-const mongoose = require('mongoose');
+let Service = new mongoose.Schema({
+  serviceName: { type: String, required: true },
+  price: { type: Number, required: true },
+});
 
-let taskSchema = new mongoose.Schema({
-    title: {type:String, required:true}
-})
+const service = mongoose.model("Service", Service);
 
-const task = mongoose.model('task',taskSchema)
-
-module.exports = task;
+module.exports = service;
